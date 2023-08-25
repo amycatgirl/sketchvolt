@@ -1,0 +1,18 @@
+{
+  "name": "generate-revite-plugin",
+  "version": "1.0.0",
+  "description": "Revite plugin generator",
+  "type": "module",
+
+  "scripts": {
+    "build": "rimraf target && node generate-plugin.js",
+    "build:dev": "DEV=true pnpm build"
+  },
+
+  "author": "amycatgirl",
+  "license": "MIT",
+  "devDependencies": {
+    "minify": "^10.3.0",
+    "try-to-catch": "^3.0.1"
+  }
+}
