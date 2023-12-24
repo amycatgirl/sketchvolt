@@ -1,0 +1,1 @@
+{"namespace":"username","id":"plugin-name","entrypoint":"()=>console.log(\"Heyo! I am a sample plugin!\");","version":"1.0.0"}
