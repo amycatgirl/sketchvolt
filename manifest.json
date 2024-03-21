@@ -1,7 +1,7 @@
 {
     "namespace": "amycatgirl",
     "id": "skpd",
-    "version": 1,
+    "version": 2,
     "dyna": {
         "repo": "amycatgirl/sketchvolt",
         "shouldRestart": false,
