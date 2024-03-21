@@ -34,8 +34,6 @@ if (process.env.DEV) {
   manifest["entrypoint"] = data;
 }
 
-manifest["version"] = packageInfo.version;
-
 fs.writeFileSync(outFile, JSON.stringify(manifest) + "\n");
 
 console.log(`Manifest written to ${outFile}!`);
