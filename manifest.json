@@ -4,6 +4,7 @@
     "version": 1,
     "dyna": {
         "repo": "amycatgirl/sketchvolt",
-        "shouldRestart": false
+        "shouldRestart": false,
+        "dev": false
     }
 }
