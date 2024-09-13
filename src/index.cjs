@@ -1,4 +1,4 @@
-() => {
+
   window.sketchpad = {};
 
   window.sketchpad._open = false;
@@ -115,4 +115,3 @@
   return {
 		onUnload: () => window.sketchpad._unloadSketchpad()
 	}
-}
