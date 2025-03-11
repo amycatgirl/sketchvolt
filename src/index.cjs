@@ -87,24 +87,28 @@ window.sketchpad.internal.dataURItoBlob = function (dataURI, callback) {
 };
 
 window.sketchpad.internal.autumnUpload = async function (blob) {
-  const form = new FormData();
-  console.log(blob);
-  const date = new Date();
-  form.append("file", blob, `sketchpadDrawing-${date.toLocaleDateString()}`);
+    const client = window.controllers.client.getReadyClient();
+    const form = new FormData();
+    console.log(blob);
+    const date = new Date();
+    form.append("file", blob, `sketchpadDrawing-${date.toLocaleDateString()}`);
 
-  const res = await fetch("https://autumn.revolt.chat/attachments", {
-    method: "POST",
-    body: form,
-  }).then(async (response) => await response.json());
-  return res.id;
+    const res = await fetch("https://autumn.revolt.chat/attachments", {
+        method: "POST",
+        body: form,
+        headers: {
+            "X-Session-Token": client.session.token,
+        }
+    }).then(async (response) => await response.json());
+    return res.id;
 };
 
 window.sketchpad.uploadSketchpad = async function (id, content) {
-  const _ = window.location.href.split("/");
-  const channelID = _[_.length - 1];
+    const _ = window.location.href.split("/");
+    const channelID = _[_.length - 1];
 
-  const client = window.controllers.client.getReadyClient();
-  await client.channels
+    const client = window.controllers.client.getReadyClient();
+    await client.channels
     .get(channelID)
     .sendMessage({ content: content ?? "", attachments: [id] })
     .then(() => window.sketchpad.toggleSketchpad());
